@@ -1,0 +1,128 @@
+.link-card {
+  display: block;
+  text-decoration: none;
+  margin-bottom: calc(var(--spacing) * 4);
+  animation: fadeInUp 0.35s ease-out forwards;
+  opacity: 0;
+}
+
+.link-card:last-child {
+  margin-bottom: 0;
+}
+
+.link-card-inner {
+  display: flex;
+  align-items: center;
+  gap: calc(var(--spacing) * 3);
+  padding: calc(var(--spacing) * 8) calc(var(--spacing) * 8)
+    calc(var(--spacing) * 8) calc(var(--spacing) * 8);
+  border: 1px solid var(--color-rule);
+  background: transparent;
+  transition: all 0.18s ease;
+}
+
+.link-card:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.link-card:hover .link-card-inner,
+.link-card:focus-visible .link-card-inner {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: var(--color-bg);
+}
+
+.link-card:hover .link-card-inner .link-title,
+.link-card:focus-visible .link-card-inner .link-title {
+  color: var(--color-bg);
+}
+
+.link-card:hover .link-card-inner .link-subtitle,
+.link-card:focus-visible .link-card-inner .link-subtitle {
+  color: var(--color-bg);
+  opacity: 0.9;
+}
+
+.link-icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: calc(var(--spacing) * 4);
+  border: 1px solid var(--color-rule);
+  color: var(--color-ink);
+  flex-shrink: 0;
+  transition: all 0.18s ease;
+}
+
+.link-card:hover .link-icon,
+.link-card:focus-visible .link-icon {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+.link-text {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--spacing) * 1.28);
+  min-width: 0;
+}
+
+.link-title {
+  font-family: var(--font-sans);
+  font-size: 0.96rem;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  color: var(--color-ink);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color 0.18s ease;
+}
+
+.link-subtitle {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color 0.18s ease;
+}
+
+.link-external {
+  color: var(--color-muted);
+  opacity: 0;
+  transition: all 0.18s ease;
+  flex-shrink: 0;
+}
+
+.link-card:hover .link-external,
+.link-card:focus-visible .link-external {
+  opacity: 1;
+  color: var(--color-bg);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .link-card {
+    animation: none;
+    opacity: 1;
+  }
+}
