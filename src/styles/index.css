@@ -1,21 +1,16 @@
 :root {
-  --color-bg: Canvas;
-  --color-ink: CanvasText;
-  --color-body: CanvasText;
-  --color-muted: CanvasText;
-  --color-faint: CanvasText;
-  --color-rule: CanvasText;
-  --color-accent: oklch(57.7% 0.245 27.325);
+  --color-bg: #000;
+  --color-ink: #fff;
+  --color-body: #fff;
+  --color-muted: #fff;
+  --color-faint: #fff;
+  --color-rule: #fff;
+  --color-accent: #fff;
+  --color-grid: rgb(255 255 255 / 7%);
   --font-sans: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-mono: ui-monospace, 'JetBrains Mono', monospace;
   --spacing: 0.25rem;
-  color-scheme: light dark;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-accent: oklch(70.4% 0.191 22.216);
-  }
+  color-scheme: dark;
 }
 
 * {
@@ -38,6 +33,20 @@ body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  isolation: isolate;
+}
+
+body::before {
+  position: fixed;
+  z-index: 0;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--color-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-grid) 1px, transparent 1px);
+  background-size: 50px 75px;
+  clip-path: polygon(70% 0, 100% 0, 100% 100%, 40% 100%);
+  content: '';
+  pointer-events: none;
 }
 
 @media (prefers-reduced-motion: reduce) {

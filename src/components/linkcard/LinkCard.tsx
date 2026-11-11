@@ -6,6 +6,7 @@ import './LinkCard.css';
 type IconProps = SVGProps<SVGSVGElement> & { size?: number };
 
 interface LinkCardProps {
+  number: string;
   href: string;
   icon: React.ComponentType<IconProps>;
   title: string;
@@ -14,6 +15,7 @@ interface LinkCardProps {
 }
 
 const LinkCard: React.FC<LinkCardProps> = ({
+  number,
   href,
   icon: Icon,
   title,
@@ -32,13 +34,12 @@ const LinkCard: React.FC<LinkCardProps> = ({
       data-testid="link-card"
     >
       <div className="link-card-inner">
-        <div className="link-icon">
-          <Icon size={18} />
-        </div>
+        <span className="link-number" aria-hidden="true">{number}</span>
         <div className="link-text">
           <span className="link-title">{title}</span>
           <span className="link-subtitle">{subtitle}</span>
         </div>
+        <Icon size={18} className="link-icon" />
         <ExternalLinkIcon size={14} className="link-external" />
       </div>
     </a>

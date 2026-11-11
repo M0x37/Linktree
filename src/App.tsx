@@ -12,32 +12,36 @@ import './styles/app.css';
 const links = {
   me: [
     {
-      href: 'https://m0x2.de/',
+      number: '01',
+      href: 'https://m0x2.dev',
       icon: UserIcon,
       title: 'Portfolio',
-      subtitle: 'View my projects & work',
+      subtitle: 'My website',
     },
   ],
   social: [
     {
-      href: 'https://github.com/M0x37',
+      number: '02',
+      href: 'https://github.com/M0x37?tab=repositories',
       icon: Code2Icon,
       title: 'GitHub',
-      subtitle: 'Check out my code',
+      subtitle: 'My repositories',
     },
     {
-      href: 'https://www.snapchat.com/add/maxify37',
+      number: '03',
+      href: 'https://x.com/Max3702q',
       icon: GlobeIcon,
-      title: 'Snapchat',
-      subtitle: 'Add me on Snapchat',
+      title: 'X',
+      subtitle: 'Follow me on X',
     },
   ],
-  music: [
+  other: [
     {
-      href: 'https://open.spotify.com/intl-de/track/4Y6tN306RKH54S4WAWZuYO?si=eae06888637a4e21',
+      number: '04',
+      href: 'https://open.spotify.com/track/5RXP4YWkiOfmOPAk4MofWz?si=974a7995432c4789',
       icon: DiscIcon,
-      title: 'Favorite Track',
-      subtitle: 'My #1 song right now',
+      title: 'Fav Song',
+      subtitle: 'My favorite song on Spotify',
     },
   ],
 };
@@ -53,13 +57,12 @@ function App() {
     <div className="app">
       <main className={`main-container ${mounted ? 'visible' : ''}`}>
         <section className="profile-section">
-          <h1 className="profile-name">@M0x37</h1>
+          <h1 className="profile-name">M0x37</h1>
         </section>
 
         <div className="links-container">
           <section className="links-section">
             <div className="section-header">
-              <UserIcon size={16} />
               <h2>Me</h2>
             </div>
             {links.me.map((link, index) => (
@@ -69,7 +72,6 @@ function App() {
 
           <section className="links-section">
             <div className="section-header">
-              <GlobeIcon size={16} />
               <h2>Social</h2>
             </div>
             {links.social.map((link, index) => (
@@ -79,10 +81,9 @@ function App() {
 
           <section className="links-section">
             <div className="section-header">
-              <DiscIcon size={16} />
-              <h2>Music</h2>
+              <h2>Other</h2>
             </div>
-            {links.music.map((link, index) => (
+            {links.other.map((link, index) => (
               <LinkCard key={index} {...link} delay={index * 0.1} />
             ))}
           </section>
@@ -90,12 +91,12 @@ function App() {
 
         <footer className="footer">
           <a
-            href="https://impressum.m0x2.de/"
+            href="https://impressum.m0x2.dev/"
             target="_blank"
             rel="noopener noreferrer"
             className="footer-link"
           >
-            Impressum
+            Legal Notice
             <ExternalLinkIcon size={12} />
           </a>
         </footer>

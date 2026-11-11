@@ -13,9 +13,8 @@
 .link-card-inner {
   display: flex;
   align-items: center;
-  gap: calc(var(--spacing) * 3);
-  padding: calc(var(--spacing) * 8) calc(var(--spacing) * 8)
-    calc(var(--spacing) * 8) calc(var(--spacing) * 8);
+  gap: calc(var(--spacing) * 4);
+  padding: calc(var(--spacing) * 4) calc(var(--spacing) * 5);
   border: 1px solid var(--color-rule);
   background: transparent;
   transition: all 0.18s ease;
@@ -44,23 +43,29 @@
   opacity: 0.9;
 }
 
-.link-icon {
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: calc(var(--spacing) * 4);
-  border: 1px solid var(--color-rule);
+.link-number {
+  width: 1.5rem;
   color: var(--color-ink);
   flex-shrink: 0;
-  transition: all 0.18s ease;
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+}
+
+.link-icon {
+  width: 1.125rem;
+  height: 1.125rem;
+  color: var(--color-ink);
+  flex-shrink: 0;
+  transition: color 0.18s ease;
 }
 
 .link-card:hover .link-icon,
-.link-card:focus-visible .link-icon {
-  border-color: var(--color-accent);
-  color: var(--color-accent);
+.link-card:focus-visible .link-icon,
+.link-card:hover .link-number,
+.link-card:focus-visible .link-number {
+  color: var(--color-bg);
 }
 
 .link-text {
